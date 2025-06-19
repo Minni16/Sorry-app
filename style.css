@@ -1,5 +1,11 @@
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
-    background: linear-gradient(to right, #b993d6, #8ca6db);
+    background: linear-gradient(to right, #a85ee7, #6499f6);
+    background-attachment: fixed;
+    background-size: cover;
     font-family: 'Arial', sans-serif;
     text-align: center;
     padding: 0;
@@ -10,6 +16,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    transform: translateZ(0);
 }
 
 .container {
