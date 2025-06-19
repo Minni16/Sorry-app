@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Minni</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container" id="hello-page">
+        <h1>Hiee babeyy! &lt;3</h1>
+        <button id="hiee-btn">Hiee</button>
+    </div>
+    <div class="container" id="sorry-page" style="display:none;">
+        <h1>I'm Really Sorry 💔</h1>
+        <p>Dipesh babeyyyy... I'm sorry.</p>
+        <p>You mean the world to me, and I can't stand being the reason you're sad.</p>
+        <p>Please talk to me. I miss you even more.</p>
+        <button>Forgive Me?</button>
+    </div>
+    <div class="container" id="love-page" style="display:none;">
+        <h1>Yayyy!! I love you dipesh babeyy! 🥰</h1>
+        <div id="confetti"></div>
+        <div id="hearts"></div>
+        <div id="sparkles"></div>
+    </div>
+    <div id="popup" class="popup-bg" style="display:none;">
+        <div class="popup-content">
+            <img src="image/IMG_20250618_214930.jpg" alt="Cute" class="popup-img" />
+            <div>
+                <button id="yes-btn">Yes, my love</button>
+                <button id="no-btn" class="no-btn">No hmph</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('hiee-btn').onclick = function () {
+            document.getElementById('hello-page').style.display = 'none';
+            document.getElementById('sorry-page').style.display = 'inline-block';
+        };
+        document.querySelector('#sorry-page button').onclick = function () {
+            document.getElementById('popup').style.display = 'flex';
+        };
+        document.getElementById('yes-btn').onclick = function () {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('hello-page').style.display = 'none';
+            document.getElementById('sorry-page').style.display = 'none';
+            document.getElementById('love-page').style.display = 'inline-block';
+            triggerConfetti();
+            triggerHearts();
+            triggerSparkles();
+        };
+        document.getElementById('no-btn').onclick = function () {
+            document.getElementById('popup').style.display = 'none';
+        };
+        document.getElementById('no-btn').onclick = function () {
+            alert("🚫 Access Denied: You're not allowed to say no to your baby moon !!");
+        };
+
+        // Confetti animation
+        function triggerConfetti() {
+            const confetti = document.getElementById('confetti');
+            confetti.innerHTML = '';
+            for (let i = 0; i < 40; i++) {
+                const c = document.createElement('div');
+                c.className = 'confetti-piece';
+                c.style.left = Math.random() * 100 + '%';
+                c.style.background = `hsl(${Math.random()*360},90%,70%)`;
+                c.style.animationDelay = (Math.random() * 0.5) + 's';
+                confetti.appendChild(c);
+            }
+        }
+        // Hearts animation
+        function triggerHearts() {
+            const hearts = document.getElementById('hearts');
+            hearts.innerHTML = '';
+            for (let i = 0; i < 20; i++) {
+                const h = document.createElement('div');
+                h.className = 'heart';
+                h.style.left = Math.random() * 100 + '%';
+                h.style.animationDelay = (Math.random() * 1) + 's';
+                hearts.appendChild(h);
+            }
+        }
+        // Sparkles animation
+        function triggerSparkles() {
+            const sparkles = document.getElementById('sparkles');
+            sparkles.innerHTML = '';
+            for (let i = 0; i < 30; i++) {
+                const s = document.createElement('div');
+                s.className = 'sparkle';
+                s.style.left = Math.random() * 100 + '%';
+                s.style.animationDelay = (Math.random() * 0.7) + 's';
+                sparkles.appendChild(s);
+            }
+        }
+    </script>
+</body>
+
+</html>

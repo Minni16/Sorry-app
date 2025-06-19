@@ -1,0 +1,203 @@
+body {
+    background: linear-gradient(to right, #b993d6, #8ca6db);
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding: 0;
+    color: #5f4b8b;
+    min-height: 100vh;
+    min-width: 100vw;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background: #f3e8ff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(143, 129, 191, 0.15);
+    display: inline-block;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #7c6ca4;
+}
+
+button {
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    background: linear-gradient(to right, #b993d6, #8ca6db);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    margin-top: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(143, 129, 191, 0.10);
+}
+
+button:hover {
+    background: linear-gradient(to right, #8ca6db, #b993d6);
+}
+
+/* Popup background overlay */
+.popup-bg {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(179, 147, 214, 0.3);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Popup content box */
+.popup-content {
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(143, 129, 191, 0.2);
+    text-align: center;
+    display: inline-block;
+}
+
+/* Popup image */
+.popup-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    object-fit: cover;
+    object-position: center;
+    border: 8px solid #b993d6;
+}
+
+.no-btn {
+    background: linear-gradient(to right, #b993d6, #8ca6db);
+    color: #fff;
+    cursor: not-allowed;
+    position: relative;
+}
+
+@keyframes loveFadePop {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  80% {
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#love-page {
+  animation: loveFadePop 3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+#confetti, #hearts, #sparkles {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -30px;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  opacity: 0.85;
+  animation: confetti-fall 3s cubic-bezier(0.6,0.2,0.4,1.1) forwards;
+}
+@keyframes confetti-fall {
+  0% { transform: translateY(0) rotate(0deg); }
+  80% { opacity: 1; }
+  100% { transform: translateY(350px) rotate(360deg); opacity: 0; }
+}
+
+.heart {
+  position: absolute;
+  bottom: 0;
+  width: 28px;
+  height: 28px;
+  background: none;
+  opacity: 0.85;
+  animation: heart-float 2s cubic-bezier(0.6,0.2,0.4,1.1) forwards;
+}
+.heart::before, .heart::after {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 0;
+  width: 14px;
+  height: 24px;
+  background: #e573b7;
+  border-radius: 14px 14px 0 0;
+  transform: rotate(-45deg);
+}
+.heart::after {
+  left: 0;
+  transform: rotate(45deg);
+}
+@keyframes heart-float {
+  0% { transform: translateY(0) scale(0.7); opacity: 0.7; }
+  60% { transform: translateY(-120px) scale(1.1); opacity: 1; }
+  100% { transform: translateY(-200px) scale(1); opacity: 0; }
+}
+
+.sparkle {
+  position: absolute;
+  top: 0;
+  width: 12px;
+  height: 12px;
+  background: none;
+  opacity: 0.8;
+  animation: sparkle-float 3s linear forwards;
+}
+.sparkle::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 0;
+  width: 2px;
+  height: 12px;
+  background: #fffbe7;
+  border-radius: 1px;
+  box-shadow: 0 0 6px 2px #fffbe7;
+}
+.sparkle::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 12px;
+  height: 2px;
+  background: #fffbe7;
+  border-radius: 1px;
+  box-shadow: 0 0 6px 2px #fffbe7;
+}
+@keyframes sparkle-float {
+  0% { transform: translateY(0) scale(0.7) rotate(0deg); opacity: 0.8; }
+  60% { opacity: 1; }
+  100% { transform: translateY(180px) scale(1.2) rotate(90deg); opacity: 0; }
+}
+
+#love-page {
+  position: relative;
+  overflow: hidden;
+}
